@@ -1,9 +1,26 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
+// import { toast } from 'react-toastify';
 
 export class Searchbar extends Component {
+  state = {
+    imageName: '',
+  };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(e.target.input.value);
+    if (this.state.imageName.trim() === '') {
+      alert('Input your search goal');
+
+      return;
+    }
+    this.props.onSubmit(this.state.imageName);
+    this.setState({ imageName: '' });
+  };
+
+  handleInput = e => {
+    this.setState({
+      imageName: e.currentTarget.value.toLowerCase(),
+    });
   };
   render() {
     return (
@@ -14,6 +31,7 @@ export class Searchbar extends Component {
           </button>
 
           <input
+            onChange={this.handleInput}
             className="input"
             type="text"
             autoComplete="off"
@@ -26,3 +44,7 @@ export class Searchbar extends Component {
     );
   }
 }
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

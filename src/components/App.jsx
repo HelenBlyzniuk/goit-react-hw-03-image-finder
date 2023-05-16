@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
+// import { ToastContainer } from 'react-toastify';
 
 export class App extends Component {
   state = {
@@ -14,7 +15,6 @@ export class App extends Component {
     return (
       <div
         style={{
-          height: '100vh',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -23,6 +23,10 @@ export class App extends Component {
         }}
       >
         <Searchbar onSubmit={this.onSubmit} />
+        {/* <ToastContainer
+          autoClose="3000"
+          style={{ width: '100px', fontSize: '15px', display: 'flex' }}
+        /> */}
       </div>
     );
   }
