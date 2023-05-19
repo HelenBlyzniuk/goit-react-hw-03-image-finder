@@ -4,6 +4,7 @@ import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { Button } from 'components/Button/Button';
 import { Loader } from 'components/Loader/Loader';
 import { Modal } from 'components/Modal/Modal';
+// import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryIten';
 // import { ToastContainer } from 'react-toastify';
 
 export class App extends Component {
@@ -44,7 +45,7 @@ export class App extends Component {
   KEY = '34953868-e619b94b5038a72e794119bd3';
 
   componentDidUpdate(prevProps, prevState) {
-    const { searchName, page, images, error, status, btnloadMore } = this.state;
+    const { searchName, page } = this.state;
     if (prevState.searchName !== searchName || prevState.page !== page) {
       this.setState({ status: 'pending' });
 
@@ -101,6 +102,8 @@ export class App extends Component {
           <Button handleClick={this.handleClick} />
         )}
         {status === 'pending' && <Loader />}
+        {status === 'rejected' && <div>{error}</div>}
+
         {showModal && (
           <Modal
             largeImageURL={largeImageURL}

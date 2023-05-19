@@ -24,10 +24,10 @@ export const ImageGallery = ({ images, handleImageClick }) => {
 ImageGallery.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       webformatURL: PropTypes.string.isRequired,
       largeImageURL: PropTypes.string.isRequired,
-      tag: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
 };

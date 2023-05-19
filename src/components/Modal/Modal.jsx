@@ -9,6 +9,14 @@ export class Modal extends Component {
   handleClick = e => {
     this.props.handleModalClick();
   };
+
+  componentDidMount() {
+    window.addEventListener('keydown', e => {
+      if (e.code === 'Escape') {
+        this.props.handleModalClick();
+      }
+    });
+  }
   render() {
     const { largeImageURL, tags } = this.props;
     return createPortal(
