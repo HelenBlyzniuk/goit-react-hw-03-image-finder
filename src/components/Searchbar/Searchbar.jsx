@@ -4,22 +4,22 @@ import PropTypes from 'prop-types';
 
 export class Searchbar extends Component {
   state = {
-    imageName: '',
+    searchName: '',
   };
   handleSubmit = e => {
     e.preventDefault();
-    if (this.state.imageName.trim() === '') {
+    if (this.state.searchName.trim() === '') {
       alert('Input your search goal');
 
       return;
     }
-    this.props.onSubmit(this.state.imageName);
-    this.setState({ imageName: '' });
+    this.props.onSubmit(this.state.searchName);
+    this.setState({ searchName: '' });
   };
 
   handleInput = e => {
     this.setState({
-      imageName: e.currentTarget.value.toLowerCase(),
+      searchName: e.currentTarget.value.toLowerCase(),
     });
   };
   render() {
@@ -38,6 +38,7 @@ export class Searchbar extends Component {
             autoFocus
             placeholder="Search images and photos"
             name="input"
+            value={this.state.searchName}
           />
         </form>
       </header>
