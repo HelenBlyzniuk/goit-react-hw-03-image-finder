@@ -27,7 +27,7 @@ export class ImageGallery extends Component {
           );
         })
         .then(photos => this.setState({ images: photos, status: 'resolved' }))
-        .catch(error => this.setState({ error, status: 'rejected' }));
+        .catch(error => this.setState({ error: error, status: 'rejected' }));
     }
   }
 
