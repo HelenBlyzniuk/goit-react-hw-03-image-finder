@@ -7,12 +7,12 @@ export const Loader = () => {
       height="100"
       width="100"
       color="#4fa94d"
-      wrapperStyle={{}}
+      wrapperStyle={{ marginLeft: 'auto', marginRight: 'auto' }}
       wrapperClass=""
       visible={true}
-      outerCircleColor=""
-      innerCircleColor=""
-      barColor=""
+      outerCircleColor="blue"
+      innerCircleColor="blue"
+      barColor="blue"
       ariaLabel="circles-with-bar-loading"
     />
   );

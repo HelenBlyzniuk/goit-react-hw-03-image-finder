@@ -7,16 +7,20 @@
 //   };
 
 //   render() {
-//     const { id, webformatURL, largeImageURL, tags } = this.props;
+//     const { images } = this.props.images;
 //     return (
-//       <li className="gallery-item" key={id}>
-//         <img
-//           src={webformatURL}
-//           alt={tags}
-//           width="300"
-//           onClick={() => this.handleClick({ largeImageURL, tags })}
-//         />
-//       </li>
+//       <>
+//         {images.map(({ id, webformatURL, largeImageURL, tags }) => (
+//           <li className="gallery-item" key={id}>
+//             <img
+//               src={webformatURL}
+//               alt={tags}
+//               width="300"
+//               onClick={() => this.handleClick({ largeImageURL, tags })}
+//             />
+//           </li>
+//         ))}
+//       </>
 //     );
 //   }
 // }
@@ -27,7 +31,7 @@
 //       id: PropTypes.number.isRequired,
 //       webformatURL: PropTypes.string.isRequired,
 //       largeImageURL: PropTypes.string.isRequired,
-//       tag: PropTypes.string.isRequired,
+//       tags: PropTypes.string.isRequired,
 //     }).isRequired
 //   ).isRequired,
 // };

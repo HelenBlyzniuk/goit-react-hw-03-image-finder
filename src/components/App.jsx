@@ -4,8 +4,8 @@ import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { Button } from 'components/Button/Button';
 import { Loader } from 'components/Loader/Loader';
 import { Modal } from 'components/Modal/Modal';
+import css from './App.module.css';
 // import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryIten';
-// import { ToastContainer } from 'react-toastify';
 
 export class App extends Component {
   state = {
@@ -83,20 +83,18 @@ export class App extends Component {
     } = this.state;
 
     return (
-      <div
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
+      <div className={css.app}>
         <Searchbar onSubmit={this.onSubmit} />
         {images.length !== 0 && (
           <ImageGallery
             images={images}
             handleImageClick={this.handleImageClick}
-          />
+          >
+            {/* <ImageGalleryItem
+              images={images}
+              handleImageClick={this.handleImageClick}
+            /> */}
+          </ImageGallery>
         )}
         {btnloadMore && status !== 'pending' && (
           <Button handleClick={this.handleClick} />
@@ -111,11 +109,6 @@ export class App extends Component {
             handleModalClick={this.handleModalClick}
           />
         )}
-
-        {/* <ToastContainer
-          autoClose="3000"
-          style={{ width: '100px', fontSize: '15px', display: 'flex' }}
-        /> */}
       </div>
     );
   }

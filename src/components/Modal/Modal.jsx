@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
+import css from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -17,15 +18,15 @@ export class Modal extends Component {
       }
     });
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.props.handleModalClick);
+  }
   render() {
     const { largeImageURL, tags } = this.props;
     return createPortal(
-      <div
-        className="overlay"
-        style={{ width: '800px', height: '800px' }}
-        onClick={this.handleClick}
-      >
-        <div className="modal">
+      <div className={css.overlay} onClick={this.handleClick}>
+        <div className={css.modal}>
           <img src={largeImageURL} alt={tags} width="500" />
         </div>
       </div>,

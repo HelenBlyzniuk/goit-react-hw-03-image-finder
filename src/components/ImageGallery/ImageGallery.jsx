@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import css from './ImageGallery.module.css';
 
 export const ImageGallery = ({ images, handleImageClick }) => {
   const handleClick = ({ largeImageURL, tags }) => {
@@ -6,10 +7,11 @@ export const ImageGallery = ({ images, handleImageClick }) => {
   };
 
   return (
-    <ul className="gallery" style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <ul className={css.gallery}>
       {images.map(({ id, webformatURL, largeImageURL, tags }) => (
-        <li className="gallery-item" key={id}>
+        <li className={css.galleryItem} key={id}>
           <img
+            className={css.galleryItemImage}
             src={webformatURL}
             alt={tags}
             width="300"
@@ -31,3 +33,15 @@ ImageGallery.propTypes = {
     }).isRequired
   ).isRequired,
 };
+
+// export const ImageGallery = () => {
+//   return (
+//     <ul className="gallery" style={{ display: 'flex', flexWrap: 'wrap' }}>
+//       {this.props.children}
+//     </ul>
+//   );
+// };
+
+// ImageGallery.propTypes = {
+//   children: PropTypes.element.isRequired,
+// };
