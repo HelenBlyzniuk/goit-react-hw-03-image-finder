@@ -89,12 +89,7 @@ export class App extends Component {
           <ImageGallery
             images={images}
             handleImageClick={this.handleImageClick}
-          >
-            {/* <ImageGalleryItem
-              images={images}
-              handleImageClick={this.handleImageClick}
-            /> */}
-          </ImageGallery>
+          />
         )}
         {btnloadMore && status !== 'pending' && (
           <Button handleClick={this.handleClick} />
