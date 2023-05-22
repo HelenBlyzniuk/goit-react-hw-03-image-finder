@@ -1,12 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from 'components/Searchbar/Searchbar.module.css';
-// import { toast } from 'react-toastify';
 
 export class Searchbar extends Component {
   state = {
     searchName: '',
   };
+
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.searchName.trim() === '') {
@@ -15,7 +15,6 @@ export class Searchbar extends Component {
       return;
     }
     this.props.onSubmit(this.state.searchName);
-    this.setState({ searchName: '' });
   };
 
   handleInput = e => {
@@ -23,6 +22,7 @@ export class Searchbar extends Component {
       searchName: e.currentTarget.value.toLowerCase(),
     });
   };
+
   render() {
     return (
       <header className={css.searchbar}>

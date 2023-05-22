@@ -5,11 +5,10 @@ import { Button } from 'components/Button/Button';
 import { Loader } from 'components/Loader/Loader';
 import { Modal } from 'components/Modal/Modal';
 import css from './App.module.css';
-// import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryIten';
 
 export class App extends Component {
   state = {
-    seachName: '',
+    searchName: '',
     page: 1,
     images: [],
     error: null,
@@ -19,7 +18,11 @@ export class App extends Component {
     tags: null,
     showModal: false,
   };
+
   onSubmit = value => {
+    if (this.state.searchName === value) {
+      return;
+    }
     this.setState({
       searchName: value,
       page: 1,

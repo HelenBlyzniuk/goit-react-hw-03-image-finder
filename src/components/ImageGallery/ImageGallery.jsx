@@ -11,7 +11,6 @@ export const ImageGallery = ({ images, handleImageClick }) => {
       {images.map(({ id, webformatURL, largeImageURL, tags }) => (
         <ImageGalleryItem
           key={id}
-          id={id}
           webformatURL={webformatURL}
           largeImageURL={largeImageURL}
           tags={tags}

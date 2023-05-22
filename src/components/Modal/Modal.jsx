@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import css from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -8,6 +9,9 @@ export class Modal extends Component {
   state = {};
 
   handleClick = e => {
+    if (e.target.nodeName === 'IMG') {
+      return;
+    }
     this.props.handleModalClick();
   };
 
@@ -34,3 +38,8 @@ export class Modal extends Component {
     );
   }
 }
+Modal.propTypes = {
+  largeImageURL: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
+  handleModalClick: PropTypes.func.isRequired,
+};

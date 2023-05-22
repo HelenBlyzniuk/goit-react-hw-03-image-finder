@@ -4,9 +4,9 @@ import css from './ImageGalleryItem.module.css';
 
 export class ImageGalleryItem extends Component {
   render() {
-    const { id, webformatURL, largeImageURL, tags } = this.props;
+    const { webformatURL, largeImageURL, tags } = this.props;
     return (
-      <li className={css.galleryItem} key={id}>
+      <li className={css.galleryItem}>
         <img
           className={css.galleryItemImage}
           src={webformatURL}
@@ -20,7 +20,6 @@ export class ImageGalleryItem extends Component {
 }
 
 ImageGalleryItem.propTypes = {
-  id: PropTypes.number.isRequired,
   webformatURL: PropTypes.string.isRequired,
   largeImageURL: PropTypes.string.isRequired,
   tags: PropTypes.string.isRequired,
